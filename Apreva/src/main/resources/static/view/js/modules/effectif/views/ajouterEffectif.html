@@ -1,0 +1,911 @@
+<html ng-app="routePro">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- <script type="text/javascript"
+	src="view/templates/bower_components/jquery/jquery.min.js"></script> -->
+
+</head>
+<body ng-controller="effectifControler">
+	<div class="banner-layer">
+		<form role="form" ng-submit="saveAndFlashEffectif()">
+
+			<h1 class="w3layouts"
+				style="color: #e2c6a9; font-family: Fantasy; font-size: 60px; padding-bottom: 0em;">Ajouter
+				un client</h1>
+			<div class="content-w3ls">
+				<div class="form_w3layouts">
+					<!-- form starts here -->
+					<fieldset>
+						<legend>INFORMATIONS</legend>
+
+						<div class="s2-w3ls">
+							<table style="margin-left: 120px;">
+
+								<tr>
+									<td>
+										<div>
+											<p>Nom :</p>
+										</div>
+									</td>
+									<td>
+										<div class="agileits-left">
+											<input type="text" name="name" class="username "
+												style="width: 220px;" ng-model="effectif.nom" required="">
+										</div>
+									</td>
+
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<p>Prénom :</p>
+										</div>
+									</td>
+									<td>
+										<div class="agileits-left">
+											<input type="text" name="prenom" class="username" required=""
+												style="width: 220px;" ng-model="effectif.prenom">
+										</div>
+									</td>
+
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<p style="margin-right: 4px; margin-bottom: 8px;">Nom
+												jeune fille :</p>
+										</div>
+									</td>
+									<td>
+										<div class="agileits-left">
+											<input type="text" name="nomJFille" class="username"
+												style="width: 220px;" ng-model="effectif.nom_patronymique">
+										</div>
+									</td>
+
+								</tr>
+							</table>
+						</div>
+						<div class="agileits-left">
+							<table>
+								<tr>
+									<td>
+										<div>
+											<p style="width: 100px;">Num Famille :</p>
+										</div>
+									</td>
+									<td>
+										<div class="agileits-left" style="padding-left: 10px;">
+											<input type="number" name="numFamille" class="username"
+												style="width: 80px; height: 25px" required=""
+												ng-model="effectif.numero_famille">
+										</div>
+									</td>
+
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<p>Date d'effet :</p>
+										</div>
+									</td>
+								<td>
+										<div class="agileits-left" style="padding-left: 10px;">
+											<input type="text." name="dateEffet" class="username"
+												required="" placeholder="01/01/2017"
+												style="width: 145px; height: 25px" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}"
+												ng-model="effectif.date_entre_organisme"
+												>
+										</div>
+									</td>
+
+								</tr>
+								<tr colspan="3">
+									<td>
+										<div>
+											<p style="width: 80px; margin-bottom: 5px;">Civilité :</p>
+										</div>
+									</td>
+									<td style="padding-right: 10px;">
+										<div class="agileits-left">
+											<select style="width: 60px;" name="civil" required
+												aria-required="true" ng-model="effectif.code_civilite">
+												<option value=""></option>
+												<option value="MLE">Mlle</option>
+												<option value="MME">Mme</option>
+												<option value="M">Mr</option>
+
+											</select>
+										</div>
+									</td>
+
+									<td>
+										<div>
+											<P style="width: 50px; margin-bottom: 5px;">Sexe :</p>
+										</div>
+									</td>
+									<td>
+										<div class="agileits-left  ">
+											<select style="width: 84px;" required aria-required="true"
+												ng-model="effectif.sexe">
+												<option value=""></option>
+												<option value="F">Femme</option>
+												<option value="H">Homme</option>
+											</select>
+										</div>
+									</td>
+
+									<td>
+										<div>
+											<p
+												style="width: 100px; margin-bottom: 2px; margin-left: 35px;">Date
+												de naissance :</p>
+										</div>
+									</td>
+									<td colspan="1">
+										<div class="agileits-left" style="width: 140px;">
+											<input type="text" name="dateNaiss" class="username"
+												required="" placeholder="01/01/2017"
+												style="width: 100px; height: 25px;" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}"
+												ng-model="effectif.date_naissance"
+												>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<p style="width: 80px; margin-bottom: 5px;">N° Voie :</p>
+										</div>
+									</td>
+									<td style="padding-right: 10px;">
+										<div class="agileits-left">
+											<input type="text" name="nVoie" class="username"
+												placeholder="" style="width: 30px" required=""  title="Enter 4 Chiffre"
+												ng-model="effectif.num_voie">
+										</div>
+
+									</td>
+									<td>
+										<div>
+											<P style="width: 50px; margin-bottom: 5px;">Cptl :</p>
+										</div>
+									</td>
+									<td>
+										<div class="agileits-left">
+											<input type="text" name="cptl" class="username"
+												placeholder="" style="width: 30px"
+												ng-model="effectif.complement_num_voie">
+										</div>
+									</td>
+								</tr>
+
+							</table>
+						</div>
+
+						<div class="agileits-right">
+							<table style="width: 100%;">
+
+								<tr>
+									<td style="width: 30px;">
+										<div>
+											<p>Adresse 1 :</p>
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="text" name="adresse" class="username "
+												placeholder="" style="width: 80%;"
+												ng-model="effectif.lib_voie" required="">
+										</div>
+									</td>
+								<tr>
+									<td>
+										<div style="width: 90px; margin-top: 10px">
+											<p>Adresse 2 :</p>
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="text" name="adresse3" class="username"
+												placeholder="" style="width: 80%;" size="235"
+												ng-model="effectif.auxiliaire_adresse1">
+										</div>
+									</td>
+
+								</tr>
+								<tr>
+									<td>
+										<div style="width: 90px; margin-top: 10px">
+											<p>Adresse 3 :</p>
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="text" name="adresse3" class="username"
+												placeholder="" style="width: 80%;"
+												ng-model="effectif.adresse3">
+										</div>
+									</td>
+
+								</tr>
+							</table>
+						</div>
+
+						<table style="width: 100%;">
+							<tr>
+								<td>
+									<div>
+										<p>Code postal:</p>
+									</div>
+								</td>
+								<td>
+									<div class="agileits-left">
+										<input type="text" name="codePostal" class="username"
+											placeholder="" style="width: 60%" required="" 
+											ng-model="effectif.code_postal" pattern="[0-9]{5}" title="Enter 4 chiffre">
+									</div>
+								</td>
+								<td style="width: 10%;">
+									<div style="width: 100px;">
+										<p style="padding-left: 40px;">Ville :</p>
+									</div>
+								</td>
+								<td>
+									<div class="agileits-left">
+										<input type="text" name="ville" class="username"
+											placeholder="" style="width: 150px"
+											ng-model="effectif.nom_acheminement" required="">
+									</div>
+								</td>
+								<td style="width: 10px;">
+									<div style="width: 85px;">
+										<P style="padding-left: 40px;">Pays :</p>
+									</div>
+								</td>
+
+								<td>
+									<div class="agileits-left">
+										<input type="text" name="pays" class="username" placeholder="" required=""
+											style="width: 35px" ng-model="effectif.code_pays" pattern="[A-Za-z]{1}" title="Enter 1 Lettre">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<p>E-mail :</p>
+									</div>
+								</td>
+								<td colspan="2">
+									<div class="agileits-left">
+										<input type="email" name="email" class="username"
+											placeholder="example@gmail.com" style="width: 300px"
+											ng-model="effectif.coordonne_mail" required="">
+									</div>
+								</td>
+
+							</tr>
+
+							<tr>
+								<td>
+									<div>
+										<p>Tel fixe :</p>
+									</div>
+								</td>
+							<!-- pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" -->
+								
+								<td>
+									<div class="agileits-left">
+										<input type="text" name="telFixe" class="username"
+											placeholder="" style="width: 200px"
+											ng-model="effectif.coordonne_tel_fixe">
+									</div>
+								</td>
+								<td style="padding-left: 20px;">
+									<div>
+										<p style="width: 100px; margin-bottom: 5px;">Tel portable
+											:</p>
+									</div>
+								</td>
+
+								<td><input type="text" name="telPort" class="username"   title="Enter 1 Lettre"
+									placeholder="" style="width: 150px; margin-bottom: 4px;" 
+									required="" ng-model="effectif.coordonne_tel_portable"	></td>
+								<td>
+									<div style="width: 85px;">
+										<P style="padding-left: 30px;">Rang :</p>
+									</div>
+								</td>
+							<td>
+									<div class="agileits-left">
+										<input type="text" name="number" class="username" required=""
+											placeholder=""  style="width: 35px" ng-model="effectif.rang_genellaire">
+									</div>
+								</td>
+							</tr>
+						</table>
+						<table
+							style="border: 1px solid red; border-radius: 5px; margin-left: -7px; border-collapse: inherit;">
+							<tr>
+								<td style="width: 145px;">
+									<div>
+										<p style="width: 145px; margin-left: 5px; margin-bottom: 8px;">N°
+											sécurité sociale :</p>
+									</div>
+								</td>
+								<td>
+									<div class="agileits-left">
+										<input type="text" name="numSecu" class="username" required=""
+											placeholder="" style="width: 150px" pattern="[0-9]{15}" title="Enter 15 chiffre" 
+											ng-model="effectif.num_secu">
+									</div>
+								</td>
+								<td style="padding-left: 20px;">
+									<div>
+										<p style="margin-left: 30px;">Clé :</p>
+									</div>
+								</td>
+								<td><input type="text" name="cle" class="username"
+									 placeholder="" style="width: 30px" required="" 
+									 pattern="[0-9]{2}" title="Enter 2 chiffre"
+									  ng-model="effectif.cle_secu"></td>
+								<td>
+									<div style="width: 190px;">
+										<P style="padding-left: 82px;">Grand régime :</p>
+									</div>
+								</td>
+
+								<td>
+									<div class="agileits-left">
+										<input type="text" name="grandRegime" class="username"
+											placeholder="" style="width: 30px" required="" 
+											pattern="[0-9]{2}" title="Enter 2 chiffre"
+											ng-model="effectif.grand_regime" >
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<p style="width: 145px; margin-left: 5px; margin-bottom: 8px;">Caisse
+											:</p>
+									</div>
+								</td>
+								<td><input type="text" name="caisse" class="username"
+									required="" placeholder=""
+									style="width: 35px; margin-bottom: 5px;"  
+									pattern="[0-9]{3}" title="Enter 3 chiffre"
+									ng-model="effectif.caisse"></td>
+								<td>
+									<div style="width: 120px;">
+										<P style="margin-left: 30px;">Centre payeur :</p>
+									</div>
+								</td>
+
+								<td>
+									<div class="agileits-left">
+										<input type="text" name="centPayeur" class="username" pattern="[0-9]{3}" title="Enter 3 chiffre"
+											placeholder="" style="width: 33px; margin-bottom: 3px;"
+											ng-model="effectif.centre_payeur">
+									</div>
+								</td>
+								<td class="agileits-left" style="width: 100px;">
+									<div>
+										<p style="width: 170px; margin-top: 9px; margin-left: 79px;">Connexion
+											NOEMIE :</p>
+									</div>
+								</td>
+								<td>
+									<div style="width: 50px; margin-left: 49px; margin-top: 8px;">
+										<label><input type="radio"
+											ng-model="effectif.refus_teletrans" name="connex" value="O" required="">Oui</label> <label><input
+											type="radio" name="connex" ng-model="effectif.refus_teletrans" value="N" required="">Non</label>
+									</div>
+								</td>
+								<td class="agileits-left">
+									<div>
+										<p style="padding-left: 80px;">Salarié:</p>
+									</div>
+								</td>
+								<td>
+									<div
+										style="width: 50px; margin-left: 19px; margin-right: 88px;">
+										<label><input type="radio" name="salarie" ng-model="effectif.salarie" required=""
+											value="O">Oui</label> <label><input type="radio" required=""
+											name="salarie" ng-model="effectif.salarie" value="N">Non</label>
+									</div>
+								</td>
+							</tr>
+
+						</table>
+						<table
+							style="border: 1px solid red; border-radius: 5px; margin-left: -7px; margin-top: 26px; border-collapse: inherit;">
+							<tr>
+								<td style="width: 18%;">
+									<div>
+										<P style="margin-left: 5px;">Code commercial :</p>
+									</div>
+								</td>
+
+								<td style="width: 170px;">
+									<div class="agileits-left">
+										<input type="text" name="codeCommer" class="username"
+											placeholder="" style="width: 53px" ng-model="effectif.commercial">
+									</div>
+								</td>
+								<td>
+									<div>
+										<p style="margin-right: 7px; margin-bottom: 6px;">CSP :</p>
+									</div>
+								</td>
+								<td style="padding-right: 10px;">
+									<div class="agileits-left">
+										<select ng-model="effectif.csp" style="width: 200px;" required
+											aria-required="true">
+											<option value=""></option>
+											<option value="48">Agents de maitrise</option>
+											<option value="10">Agriculteurs</option>
+											<option value="21">Artisans</option>
+											<option value="36">Cadres d'entreprises</option>
+											<option value="30">Cadres et prof intellec sup</option>
+											<option value="33">Cadres fonction publique</option>
+											<option value="23">Chefs d'ent 10 salariés ou +</option>
+											<option value="22">Commerçants et assimilés</option>
+											<option value="84">Elèves,étudiants</option>
+											<option value="50">Employés</option>
+											<option value="00">Indéfinie</option>
+											<option value="60">Ouvriers</option>
+											<option value="80">Personnes sans activité</option>
+											<option value="42">Prof.instit. et assimilés</option>
+											<option value="40">Professions intermédiaires</option>
+											<option value="31">Professions libérales</option>
+											<option value="46">Représentants</option>
+											<option value="70">Retraités</option>
+											<option value="47">Techniciens</option>
+										</select>
+									</div>
+
+								</td>
+
+								<td>
+									<div>
+										<P style="margin-bottom: 4px; padding-left: 25px;">Stat
+											juridique:</p>
+									</div>
+								</td>
+								<td>
+									<div class="agileits-left  " style="padding-left: 20px;">
+
+										<select ng-model="effectif.statut_juridique"
+											ng-options="j for j in statutJuridique" required
+											aria-required="true"
+											style="width: 200px; margin-right: 77px;">
+											<option value=""></option>
+										</select>
+
+									</div>
+								</td>
+							</tr>
+						</table>
+						<table>
+							<tr>
+								<td class="agileits-left" style="width: 70px;">
+									<div>
+										<p>Agence :</p>
+									</div>
+								</td>
+								<td colspan="2">
+									<div style="width: 300px;">
+										<label style="margin-right: 10px;"> <input required=""
+											type="radio" ng-model="effectif.code_agence" value="GESARR" name="agence">Arras
+										</label> <label style="margin-right: 10px;"> <input required=""
+											type="radio" ng-model="effectif.code_agence" value="GESSQT" name="agence">St-Quentin
+										</label> <label><input type="radio" required=""
+											ng-model="effectif.code_agence" value="GESVAL" name="agence">Valenciennes</label>
+
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="agileits-left" style="width: 100px;" colspan="2">
+									<div>
+										<p
+											style="width: 200px; margin-bottom: 3px; padding-right: 80px;">Situation
+											de famille :</p>
+									</div>
+								</td>
+								<td colspan="4">
+									<div>
+										<label style="margin-right: 10px;"> <input required=""
+											type="radio" ng-model="effectif.situation_familiale"
+											value="M" name="situation">Marié(e)
+										</label> <label style="margin-right: 10px;"> <input required=""
+											type="radio" ng-model="effectif.situation_familiale"
+											value="CEL" name="situation">Célibataire
+										</label> <label style="margin-right: 10px;"> <input required=""
+											type="radio" ng-model="effectif.situation_familiale"
+											value="VEUF" name="situation">Veuf(ve)
+										</label> <label style="margin-right: 10px;"> <input required=""
+											type="radio" ng-model="effectif.situation_familiale"
+											value="DIV" name="situation">Divorcé(e)
+										</label> <label style="margin-right: 10px;"> <input required=""
+											type="radio" ng-model="effectif.situation_familiale"
+											value="CONC" name="situation">Concubin(e)
+										</label> <label><input type="radio" required=""
+											ng-model="effectif.situation_familiale" value="PACS" name="situation">Pacsé(e)</label>
+
+									</div>
+								</td>
+							</tr>
+						</table>
+
+					</fieldset>
+					<!-- //form ends here -->
+				</div>
+			</div>
+			<div class="content-w3ls">
+				<div class="form_w3layouts">
+					<!-- form starts here -->
+					<fieldset>
+						<legend>NIVEAU DE COUVERTURE</legend>
+						<table>
+
+							<tr>
+								<td>
+									<div>
+										<p style="margin-bottom: 4px; margin-right: 4px;">Code
+											Collectivité :</p>
+									</div>
+								</td>
+								<td style="padding-right: 90px;">
+									<div class="agileits-left">
+										<select style="width: 100px;" id="monselect" required
+											aria-required="true" ng-model="effectif.num_coll">
+											<option value=""></option>
+											<option value="A070132">A070132</option>
+											<option value="A070132">A070132</option>
+
+
+										</select>
+									</div>
+								</td>
+
+								<td>
+									<div>
+										<P style="margin-bottom: 4px; margin-right: 4px;">Combinaison
+											:</p>
+									</div>
+								</td>
+								<td>
+									<div class="agileits-left  ">
+										<select ng-model="effectif.reference_contrat" required
+											aria-required="true" ng-options="c for c in combinaison">
+											<option value=""></option>
+
+										</select>
+									</div>
+								</td>
+
+
+							</tr>
+						</table>
+
+
+						<div class="clear"></div>
+				</div>
+			</div>
+			<div class="content-w3ls">
+				<div class="form_w3layouts">
+					<!-- form starts here -->
+					<fieldset>
+						<legend>PRESTATIONS/COTISATIONS</legend>
+						<fieldset>
+							<legend>COORDONNEES COMPTE BANCAIRE COTISATIONS</legend>
+
+							<table>
+
+								<tr>
+									<td colspan="2" style="padding-right: 40px;">
+										<div style="width: 80px;">
+											<label><input type="radio" name="prelev" required=""
+												ng-model="effectif.mode_paiement" value="chéque">Chéque</label>
+										</div>
+									</td>
+									<td style="padding-right: 40px;">
+										<div style="width: 110px;">
+											<label><input type="radio" name="prelev" required=""
+												ng-model="effectif.mode_paiement" value="prélévement">Prélèvement</label>
+										</div>
+									</td>
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<td style="padding-right: -50px;">
+										<div>
+											<P style="margin-right: 4px;">IBAN :</p>
+										</div>
+									</td>
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban1" class="username" 
+												 placeholder="" style="width: 45px" required="" pattern="[a-zA-Z0-9]{4}" title="Enter 4 chiffre"
+												ng-model="effectif.iban0">
+										</div>
+									</td>
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban1" class="username" 
+												 placeholder="" style="width: 45px" required="" pattern="[0-9]{4}" title="Enter 4 chiffre"
+												ng-model="effectif.iban1">
+										</div>
+									</td>
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban2" class="username" 
+											 placeholder="" style="width: 45px" required="" pattern="[0-9]{4}" title="Enter 4 chiffre"
+												ng-model="effectif.iban2">
+										</div>
+									</td>
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban3" class="username" 
+												 placeholder="" style="width: 45px" required="" pattern="[0-9]{4}" title="Enter 4 chiffre"
+												ng-model="effectif.iban3">
+										</div>
+									</td>
+
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban4" class="username" 
+											 placeholder="" style="width: 45px" required="" pattern="[0-9]{4}" title="Enter 4 chiffre"
+												ng-model="effectif.iban4">
+										</div>
+									</td>
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban5" class="username" 
+												 placeholder="" style="width: 45px" required="" pattern="[0-9]{4}" title="Enter 4 chiffre"
+												ng-model="effectif.iban5">
+										</div>
+									</td>
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban6" class="username" 
+												 placeholder="" style="width: 37px" required="" pattern="[0-9]{3}" title="Enter 3 chiffre"
+												ng-model="effectif.iban6">
+										</div>
+									</td>
+									<td class="agileits-left"
+										style="width: 140px; padding-left: 40px;">
+										<div>
+											<p>Date de prélévement :</p>
+										</div>
+									</td>
+									<td>
+										<div style="width: 100px; padding-left: 40px;">
+											<label><input type="radio" required="" name="datePre"
+												ng-model="effectif.jour_paiements" value="5">Le 5</label> <label><input
+												required="" type="radio" name="datePre" ng-model="effectif.jour_paiements" value="10">Le
+												10</label> <label><input type="radio" required="" 
+												ng-model="effectif.jour_paiements" value="15" name="datePre">Le 15</label>
+										</div>
+									</td>
+								</tr>
+							</table>
+
+							<div style="border: 1px solid black; margin-top: 10px;"></div>
+							<table>
+								<tr>
+									<td>
+										<div>
+											<P style="margin-right: 4px;">BIC :</p>
+										</div>
+									</td>
+									<td style="padding-right: 220px;">
+										<div class="agileits-left">
+											<input type="text" name="bic" class="username" placeholder=""
+												required="" style="width: 170px" 
+												ng-model="effectif.code_bic_cot">
+										</div>
+									</td>
+									<td>
+										<div>
+											<P>Titulaire cotisations :</p>
+										</div>
+									</td>
+									<td>
+										<button class="btn2 btn-info" type="button"
+											ng-click="getTetulair()"
+											style="line-height: 1.1; margin-bottom: 4px;">
+											<i class="glyphicon glyphicon-share-alt"></i>
+
+										</button>
+									</td>
+									<td>
+										<div class="agileits-left">
+											<input type="text" class="username" style="width: 260px"
+												required="" ng-model="effectif.titulaire_rib_cot">
+										</div>
+									</td>
+								</tr>
+							</table>
+
+							<table>
+
+								<tr>
+									<td>
+										<div>
+											<p>Date de signature :</p>
+										</div>
+									</td>
+									<td>
+										<div class="agileits-left" style="padding-left: 10px;">
+											<input type="text" name="dateSigna" class="username"
+												required="" placeholder="01/01/2017"
+												style="width: 100px; height: 25px" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}"
+												ng-model="effectif.date_signature_mandat">
+										</div>
+									</td>
+
+								</tr>
+							</table>
+						</fieldset>
+						<button class="btn2 btn-info" type="button"
+							ng-click="SendIbanFromCotToPrest()"
+							style="line-height: 3.1; margin-bottom: 1%; margin-top: 1%; margin-left: 20%;">
+							<font size="4">Cot <i
+								class="glyphicon glyphicon-arrow-right" style="top: -16px;"></i>
+								Prest
+							</font>
+						</button>
+						<button class="btn2 btn-info" type="button"
+							ng-click="SendIbanFromPrestToCot()"
+							style="line-height: 3.1; margin-bottom: 1%; margin-top: 1%; margin-left: 20%;">
+							<font size="4">Prest <i
+								class="glyphicon glyphicon-arrow-right" style="top: -16px;"></i>
+								Cot
+							</font>
+						</button>
+						<fieldset>
+							<legend>COORDONNEES COMPTE BANCAIRE PRESTATIONS</legend>
+							<table>
+								<tr>
+									<td style="padding-right: -50px;">
+										<div>
+											<P style="margin-right: 4px;">IBAN :</p>
+										</div>
+									</td>
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban1" class="username" required="" pattern="[a-zA-Z0-9]{4}" title="Enter 4 chiffre"
+												placeholder="" style="width: 45px"  ng-model="effectif.ibanP0">
+										</div>
+									</td>
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban1" class="username" required="" pattern="[0-9]{4}" title="Enter 4 chiffre"
+												placeholder="" style="width: 45px"  ng-model="effectif.ibanP1">
+										</div>
+									</td>
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban2" class="username" required="" pattern="[0-9]{4}" title="Enter 4 chiffre"
+												placeholder="" style="width: 45px"  ng-model="effectif.ibanP2">
+										</div>
+									</td>
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban3" class="username" required="" pattern="[0-9]{4}" title="Enter 4 chiffre"
+												placeholder="" style="width: 45px"  ng-model="effectif.ibanP3">
+										</div>
+									</td>
+
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban4" class="username" required="" pattern="[0-9]{4}" title="Enter 4 chiffre"
+												placeholder="" style="width: 45px"  ng-model="effectif.ibanP4">
+										</div>
+									</td>
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban5" class="username" required="" pattern="[0-9]{4}" title="Enter 4 chiffre"
+												placeholder="" style="width: 45px"  ng-model="effectif.ibanP5">
+										</div>
+									</td>
+									<td style="padding-right: 5px;">
+										<div class="agileits-left">
+											<input type="text" name="iban6" class="username" required="" pattern="[0-9]{3}" title="Enter 3 chiffre"
+												placeholder="" style="width: 40px"  ng-model="effectif.ibanP6">
+										</div>
+									</td>
+
+								</tr>
+							</table>
+							<div style="border: 1px solid black; margin-top: 10px;"></div>
+							<table>
+								<tr>
+									<td>
+										<div>
+											<P style="margin-right: 4px;">BIC :</p>
+										</div>
+									</td>
+									<td style="padding-right: 220px;">
+										<div class="agileits-left">
+											<input type="text" name="bic" class="username" placeholder=""
+												required="" style="width: 170px"
+												ng-model="effectif.code_bic_prest">
+										</div>
+									</td>
+									<td>
+										<div>
+											<P style="margin-bottom: 4px; margin-right: 4px;">Titulaire
+												prestations:</p>
+										</div>
+									</td>
+									<td>
+										<button class="btn2 btn-info" type="button"
+											ng-click="getTetulairPrest()"
+											style="line-height: 1.1; margin-bottom: 4px;">
+											<i class="glyphicon glyphicon-share-alt"></i>
+
+										</button>
+									</td>
+									<td>
+										<div class="agileits-left">
+											<input type="text" name="tituCoti" class="username"
+												required="" style="width: 200px"
+												ng-model="effectif.titulaire_rib_prest">
+										</div>
+									</td>
+								</tr>
+
+							</table>
+						</fieldset>
+					</fieldset>
+
+					<div class="submit" style="padding-left: 10px;">
+						<!-- <input type="submit" value="Enregistrer"
+							style="background-color: #73AD21;" >  --> 		
+							<button class="btn2"  style="background-color: #73AD21;font-size: 23px;margin-top: 15px;   "><font color="white">Enregistrer</font>
+														
+													</button>
+					</div>
+
+
+
+
+				</div>
+			</div>
+
+
+		</form>
+
+	</div>
+
+	<div class="modal fade" id="info" width="300px" tabindex="-1" 
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+		<div class="modal-dialog2">
+			<div class="modal-content"
+				style="width: 400px; margin: 25%; background-color: #fff6e8">
+				<div class="modal-header" style="border-bottom: 0;">
+					<img src="../view/templates/img/valider.png"
+						class="images_petit">
+						
+						<button type="button" class="close" data-dismiss="modal">X</button>
+				</div>
+				<div class="modal-body" style="text-align: center;">
+					<font size="5">Enregistrement effectué avec succès </font>
+				</div>
+				
+				<div class="agileits-left"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

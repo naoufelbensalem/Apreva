@@ -1,0 +1,147 @@
+<html ng-app="routePro">
+
+<head>
+<meta charset="utf-8">
+<!-- <script type="text/javascript"
+	src="view/templates/bower_components/jquery/jquery.min.js"></script> -->
+</head>
+<body ng-controller="effectifControler">
+	<div class="banner-layer row">
+
+
+		<h1 class="w3layouts" style="color:#e2c6a9; font-family:Fantasy; font-size:60px;padding-bottom: 0em">Liste des clients</h1>
+		<div class="content-w3ls"></div>
+
+		<div class="content-w3ls">
+			<div class="form_w3layouts">
+				<!-- form starts here -->
+				<fieldset>
+					<legend>Liste effectif</legend>
+					<div class="ch-container">
+
+						<div class="box col-md-12">
+							<div class="box-inner">
+								<div class="alert alert-info ">
+									<div class="input-group">
+										<input type="text" ng-model="motCle" id="btn-input"
+											class="form-control input-md" placeholder="search"
+											style="margin: 1px;"> <span class="input-group-btn">
+											<button ng-click="rechercher()"
+												class="btn btn-primary btn-md" id="btn-todo">
+												<i class="glyphicon glyphicon-search"></i>
+											</button>
+										</span>
+										<div class="navbar-searchP pull-right">
+											<a style="position: relative; left: 150%;"
+												class="btn btn-default dropdown-toggle" href="#/"> <i
+												class="glyphicon glyphicon-plus"></i><span
+												class="hidden-sm hidden-xs"></span>
+											</a>
+
+										</div>
+									</div>
+								</div>
+								<div class="box-content">
+
+									<table
+										class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+										<thead>
+
+											<tr style="font-size: 20px;">
+												<th></th>
+												<th >Num Famille</th>
+												<th >Nom</th>
+												<th >Prenom</th>
+												<th>Rang genellair</th>
+												<th>Date signature</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="e in effectifs.content">
+												<td width="30"><a class="btn2 btn-link"
+													href="#listeBeneficaires/{{e.numero_famille}}/{{e.id_effectif}}"
+													style="background-image: coral;"> <i
+														class="glyphicon glyphicon-eye-open icon-white"></i>
+												</a></td>
+												<td width="40" align="center">{{e.numero_famille}}</td>
+												<td class="center">{{e.nom}}</td>
+												<td class="center">{{e.prenom}}</td>
+												<td width="40" class="center">{{e.rang_genellaire}}</td>
+												<td width="80" class="center">{{e.date_entre_organisme}}</td>
+												<td width="64" class="center"><button
+														data-toggle="modal" data-target="#supprimer"
+														class="btn2 btn-danger" ng-click="getEffectif(e)">
+														<i class="glyphicon glyphicon-trash icon-white"></i>
+												
+													</button> <a class="btn2 btn-info" href="#/charger/{{e.id_effectif}}" > <i
+														class="glyphicon glyphicon-edit icon-white" ng-click="getEffectif(e)"></i>
+												</a></td>
+											</tr>
+
+										</tbody>
+									</table>
+
+									<div class="col-md-12 center-block">
+										<div class="dataTables_paginate paging_bootstrap pagination">
+											<ul class="pagination">
+
+												<li ng-class="{active:$index==pageCourante}"
+													class="clickable" ng-repeat="p in pages track by $index"><a
+													ng-click="gotoPage($index)">{{$index}}</a></li>
+
+											</ul>
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+
+						</div>
+					</div>
+
+				</fieldset>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="modal fade" id="supprimer" width="300px" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+		<div class="modal-dialog2">
+			<div class="modal-content"
+				style="width: 400px; margin: 25%; background-color: #fff6e8">
+				<div class="modal-header" style="border-bottom: 0;">
+					<img src="../view/templates/img/banierAlert.png"
+						class="images_petit">
+
+					<button type="button" class="close" data-dismiss="modal">X</button>
+
+				</div>
+				<div class="modal-body">
+					<font size="5">Voulez-vous vraiment supprimer {{effec.nom}}
+						{{effec.prenom}}!<font>
+				</div>
+				<div class="agileits-left">
+					<table>
+
+					</table>
+
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-default" data-dismiss="modal">Annuler</a>
+					<input value="Supprimer" data-dismiss="modal" type="submit"
+						class="btn btn-primary" ng-click="supprimerEffec(effec)"
+						id="btn-todo">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

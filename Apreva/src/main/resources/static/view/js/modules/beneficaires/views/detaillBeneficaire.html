@@ -1,0 +1,330 @@
+<html ng-app="routePro">
+
+<head>
+<meta charset="utf-8">
+<!-- <script type="text/javascript"
+	src="view/templates/bower_components/jquery/jquery.min.js"></script> -->
+</head>
+<body ng-controller="beneficairesControler">
+	<div class="banner-layer">
+
+
+		<h1 class="w3layouts" style="color:#e2c6a9; font-family:Fantasy; font-size:60px;padding-bottom: 0em;">Liste bénéficiaire</h1>
+		<div class="content-w3ls"></div>
+
+
+		<div class="content-w3ls">
+			<div class="form_w3layouts">
+				<!-- form starts here -->
+				<fieldset>
+					<legend>Détail client</legend>
+					<div class="ch-container">
+						<div class="box col-md-12">
+							<div class="box-inner">
+
+								<div class="box-content">
+									<table>
+
+										<thead class="alert alert-info ">
+											<tr style="color:#f329b5; font-family:Comic Sans MS;">
+												<th><font size="6">Nom du champs </font></th>
+												<th><font size="6">Information </font></th>
+											</tr>
+										</thead>
+										<tbody style="font-size: x-large;">
+
+											<tr>
+												<td>Num Famille</td>
+												<td>{{client.numero_famille}}</td>
+
+											</tr>
+											<tr>
+												<td>Nom</td>
+												<td>{{client.nom}}</td>
+											</tr>
+											<tr>
+												<td>Prénom</td>
+												<td>{{client.prenom}}</td>
+											</tr>
+											<tr>
+												<td>Nom jeunne fille</td>
+												<td>{{client.nom_patronymique}}</td>
+											</tr>
+											<tr>
+												<td>sexe</td>
+												<td>{{client.sexe}}</td>
+											</tr>
+											<tr>
+												<td>Date naissance</td>
+												<td>{{client.date_naissance}}</td>
+											</tr>
+											<tr>
+												<td>Référence interne famille</td>
+												<td>{{client.reference_interne_famille}}</td>
+											</tr>
+											<tr>
+												<td>Rang pres famille</td>
+												<td>{{client.rang_pres_famille}}</td>
+											</tr>
+											<tr>
+												<td>Rang gémellaire</td>
+												<td>{{client.rang_genellaire}}</td>
+											</tr>
+											<tr>
+												<td>Code civilité</td>
+												<td>{{client.code_civilite}}</td>
+											</tr>
+
+											<tr>
+												<td>Num sécurité</td>
+												<td>{{client.num_secu}}</td>
+											</tr>
+											<tr>
+												<td>Cle sécurité</td>
+												<td>{{client.cle_secu}}</td>
+											</tr>
+											<tr>
+												<td>Grand régime</td>
+												<td>{{client.grand_regime}}</td>
+											</tr>
+											<tr>
+												<td>Caisse</td>
+												<td>{{client.caisse}}</td>
+											</tr>
+											<tr>
+												<td>Centre payeur</td>
+												<td>{{client.centre_payeur}}</td>
+											</tr>
+											<tr>
+												<td>Code cpl grand régime</td>
+												<td>{{client.code_cpl_grand_regime}}</td>
+											</tr>
+											<tr>
+												<td>Salarié</td>
+												<td>{{client.salarie}}</td>
+											</tr>
+											<tr>
+												<td>Csp</td>
+												<td>{{client.csp}}</td>
+											</tr>
+											<tr>
+												<td>Statut juridique</td>
+												<td>{{client.statut_juridique}}</td>
+											</tr>
+											<tr>
+												<td>Code agence</td>
+												<td>{{client.code_agence}}</td>
+											</tr>
+											<tr>
+												<td>Adresse normee</td>
+												<td>{{client.adresse_normee}}</td>
+											</tr>
+											<tr>
+												<td>Référence adresse</td>
+												<td>{{client.reference_adresse}}</td>
+											</tr>
+											<tr>
+												<td>Adresse auxiliaire</td>
+												<td>{{client.auxiliaire_adresse1}}</td>
+											</tr>
+											<tr>
+												<td>Num voie</td>
+												<td>{{client.num_voie}}</td>
+											</tr>
+											<tr>
+												<td>Complément num voie</td>
+												<td>{{client.complement_num_voie}}</td>
+											</tr>
+											<tr>
+												<td>Libellé voie</td>
+												<td>{{client.lib_voie}}</td>
+											</tr>
+											<tr>
+												<td>Lieu dit</td>
+												<td>{{client.lieu_dit}}</td>
+											</tr>
+											<tr>
+												<td>Nom lieu dit</td>
+												<td>{{client.nom_lieu_dit}}</td>
+											</tr>
+											<tr>
+												<td>Code postal</td>
+												<td>{{client.code_postal}}</td>
+											</tr>
+											<tr>
+												<td>Nom acheminement</td>
+												<td>{{client.nom_acheminement}}</td>
+											</tr>
+											<tr>
+												<td>Code pays</td>
+												<td>{{client.code_pays}}</td>
+											</tr>
+											<tr>
+												<td>Coordonnées tel fixe</td>
+												<td>{{client.coordonne_tel_fixe}}</td>
+											</tr>
+											<tr>
+												<td>Commentaire tel fix</td>
+												<td>{{client.commentaire_tel_fix}}</td>
+											</tr>
+											<tr>
+												<td>Coordonnées tel portable</td>
+												<td>{{client.coordonne_tel_portable}}</td>
+											</tr>
+											<tr>
+												<td>Commentaire tel por</td>
+												<td>{{client.commentaire_tel_por}}</td>
+											</tr>
+											<tr>
+												<td>Coordonnées mail</td>
+												<td>{{client.coordonne_mail}}</td>
+											</tr>
+											<tr>
+												<td>Commentaire mel</td>
+												<td>{{client.commentaire_mel}}</td>
+											</tr>
+											<tr>
+												<td>Num coll</td>
+												<td>{{client.num_coll}}</td>
+											</tr>
+											<tr>
+												<td>Num contrat</td>
+												<td>{{client.num_contrat}}</td>
+											</tr>
+											<tr>
+												<td>Référence contrat</td>
+												<td>{{client.reference_contrat}}</td>
+											</tr>
+											<tr>
+												<td>Date début contrat</td>
+												<td>{{client.date_debut_contrat}}</td>
+											</tr>
+											<tr>
+												<td>Date fin contrat</td>
+												<td>{{client.date_fin_contrat}}</td>
+											</tr>
+											<tr>
+												<td>Mode paiement</td>
+												<td>{{client.mode_paiement}}</td>
+											</tr>
+											<tr>
+												<td>Jour paiement</td>
+												<td>{{client.jour_paiements}}</td>
+											</tr>
+											<tr>
+												<td>Date signature ptf</td>
+												<td>{{client.date_signature_ptf}}</td>
+											</tr>
+											<tr>
+												<td>Num contrat ptf</td>
+												<td>{{client.num_contrat_signe_ptf}}</td>
+											</tr>
+											<tr>
+												<td>Date signature mandat</td>
+												<td>{{client.date_signature_mandat}}</td>
+											</tr>
+											<tr>
+												<td>Num contrat rattachement</td>
+												<td>{{client.num_contrat_rattachement}}</td>
+											</tr>
+											<tr>
+												<td>Date début rattachement</td>
+												<td>{{client.date_debut_rattachement}}</td>
+											</tr>
+											<tr>
+												<td>Date fin rattachement</td>
+												<td>{{client.date_fin_rattachement}}</td>
+											</tr>
+											<tr>
+												<td>Code mode réglement</td>
+												<td>{{client.code_mode_reglement}}</td>
+											</tr>
+											<tr>
+												<td>Num banque cot</td>
+												<td>{{client.num_banque_cot}}</td>
+											</tr>
+											<tr>
+												<td>Num guichet cot</td>
+												<td>{{client.num_guichet_cot}}</td>
+											</tr>
+											<tr>
+												<td>Num compte cot</td>
+												<td>{{client.num_compte_cot}}</td>
+											</tr>
+											<tr>
+												<td>Clé rib cot</td>
+												<td>{{client.cle_rib_cot}}</td>
+											</tr>
+											<tr>
+												<td>Code bic cot</td>
+												<td>{{client.code_bic_cot}}</td>
+											</tr>
+											<tr>
+												<td>Num iban cot</td>
+												<td>{{client.num_iban_cot}}</td>
+											</tr>
+											<tr>
+												<td>Titulaire rib cot</td>
+												<td>{{client.titulaire_rib_cot}}</td>
+											</tr>
+											<tr>
+												<td>Num banque prest</td>
+												<td>{{client.num_banque_prest}}</td>
+											</tr>
+											<tr>
+												<td>Num guichet prest</td>
+												<td>{{client.num_guichet_prest}}</td>
+											</tr>
+											<tr>
+												<td>Num compte prest</td>
+												<td>{{client.num_compte_prest}}</td>
+											</tr>
+											<tr>
+												<td>Cle rib prest</td>
+												<td>{{client.cle_rib_prest}}</td>
+											</tr>
+											<tr>
+												<td>Code bic prest</td>
+												<td>{{client.code_bic_prest}}</td>
+											</tr>
+											<tr>
+												<td>Num iban prest</td>
+												<td>{{client.num_iban_prest}}</td>
+											</tr>
+											<tr>
+												<td>Titulaire rib prest</td>
+												<td>{{client.titulaire_rib_prest}}</td>
+											</tr>
+											<tr>
+												<td>Date enregistrement</td>
+												<td>{{client.date_enreg}}</td>
+											</tr>
+											<tr>
+												<td>Azerty</td>
+												<td>{{client.azerty}}</td>
+											</tr>
+											<tr>
+												<td>Adresse auxiliaire</td>
+												<td>{{client.auxiliaire_ADRESSE2}}</td>
+											</tr>
+
+										</tbody>
+									</table>
+
+								</div>
+
+							</div>
+
+
+						</div>
+					</div>
+
+				</fieldset>
+
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
