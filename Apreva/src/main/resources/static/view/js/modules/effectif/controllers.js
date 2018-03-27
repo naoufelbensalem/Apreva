@@ -135,10 +135,9 @@ effectif.controller('effectifControler', function($scope, $http, $routeParams) {
 			"auxiliaire_ADRESSE2":$scope.effectif.adresse3
 			};
 
-		var plan = $http.post('/saveEffectifs', effcObject);
+		var plan = $http.post('/effectif/saveEffectifs', effcObject);
 		plan.success(function(data, status, headers, config) {
 			$scope.message = data;
-			//$scope.status = status;
 			$('#info').modal('show');
 		});
 		
@@ -153,7 +152,7 @@ effectif.controller('effectifControler', function($scope, $http, $routeParams) {
 
 if($scope.idEffectif!=null)
 { 
-$http.get("/getEffectif?idEff="+$scope.idEffectif).then(function(response) {
+$http.get("/effectif/getEffectif?idEff="+$scope.idEffectif).then(function(response) {
 	    $scope.effectif = response.data;
 	    $scope.chargeIBAN(response.data);
 	});
@@ -180,7 +179,7 @@ $scope.chargeIBAN = function(effec) {
 
 	/** cette fonction pour affichier la liste des effectifs * */
 	function effecByNumFamil() {
-		$http.get("/effectifByName?page="+$scope.pageCourante).success(function(data) {
+		$http.get("/effectif/effectifByName?page="+$scope.pageCourante).success(function(data) {
 			$scope.effectifs = data;
 			$scope.pages = new Array(data.totalPages)
 			

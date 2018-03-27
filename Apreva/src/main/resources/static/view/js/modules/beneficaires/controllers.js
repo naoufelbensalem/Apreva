@@ -26,12 +26,12 @@ routeApp.controller('beneficairesControler', function($scope, $http, $routeParam
 		$scope.idEffectif=$routeParams.id;
 		$scope.numFamille=$routeParams.numF;
 
-		$http.get("/effectif/getBenefByNumFamil?numF="+$scope.numFamille+"&page="+$scope.pageCourante).success(function(data) {
+		$http.get("/beneficaires/getBenefByNumFamil?numF="+$scope.numFamille+"&page="+$scope.pageCourante).success(function(data) {
 			$scope.beneficaires = data;
 			$scope.pages = new Array(data.totalPages)
 		});
 		
-		$http.get("/getEffectif?idEff="+$scope.idEffectif).then(function(response) {
+		$http.get("/effectif/getEffectif?idEff="+$scope.idEffectif).then(function(response) {
 	    $scope.client = response.data;
 		});
 
@@ -240,9 +240,5 @@ $scope.liberChamps=function()
 		}
 	};
 	
-	
-	
 
-	
-	
 });

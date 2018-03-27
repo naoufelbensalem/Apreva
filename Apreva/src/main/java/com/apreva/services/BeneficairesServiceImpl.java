@@ -6,15 +6,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import com.apreva.domain.Effectif;
 import com.apreva.repositories.BeneficairesRepository;
-import com.apreva.repositories.EffectifRepository;
 
-import java.util.List;
+
 
 /**
- * Created by jt on 1/10/17.
+ * Created by NBS.
  */
 @Service
 public class BeneficairesServiceImpl implements BeneficairesService {

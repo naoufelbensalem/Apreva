@@ -1,7 +1,8 @@
 package com.apreva.controllers;
 
-import java.util.HashMap;
+
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,38 +17,25 @@ import com.apreva.repositories.EffectifRepository;
 import com.apreva.services.EffectifService;
 
 
+
 /**
  * Created by NBS.
  */
 @RestController
+@RequestMapping("/effectif")
 public class EffectifController {
 	
     @Autowired
     private EffectifService effectifService;
 
-    @Autowired
-    private EffectifRepository effectifRepository;
-   
-    @RequestMapping("/effectif")
-    public String redirToList(){
-    	return "redirect:/effectif/list";
-    }
-    
-    
+
 	@RequestMapping("/effectifByName")
 	public Page<Effectif> getBatiments(int page) {
 	return effectifService.effectifByName(new PageRequest(page, 15));
 	}
 	
-	
-//	@RequestMapping("/effectif/getBenefByNumFamil")
-//	public Page<Effectif> getBenefByNumFamil(int page,int numF) {
-//	return effectifService.findBenefByContrat(new PageRequest(page, 5),numF);
-//	}
-//    
-	
-	
-	@RequestMapping("/effectif/ParMC")
+
+	@RequestMapping("/ParMC")
 	public Page<Effectif> getBatiments(String mc, int page) {
 		return effectifService.effectifParMC("%" + mc + "%", new PageRequest(page, 15));
 	}
@@ -63,19 +51,17 @@ public class EffectifController {
       return effectifService.listAll();
     }
     
-    @RequestMapping("/effectif/findOne")
+    @RequestMapping("/findOne")
     public Effectif findById(Long idEffe) {
       return effectifService.getById(idEffe);
     }
 
-	@RequestMapping(value = "/effectif/delete")
+	@RequestMapping(value = "/delete")
 	public void deleteEffectif(int numF) {
 		effectifService.deleteEffectif(numF);
 	}
 
 
-    
-    
 	@RequestMapping(value = "/saveEffectifs", method = RequestMethod.POST)
 	public Effectif save(@RequestBody Effectif e) {
 		return effectifService.saveOrUpdate(e);
